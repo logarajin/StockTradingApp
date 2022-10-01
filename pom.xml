@@ -313,12 +313,12 @@
 					<artifactId>tomcat8-maven-plugin</artifactId>
 					<version>2.1</version>
 					<configuration>
-						<url>http://localhost:5050/manager/text</url>
+						<url>http://localhost:8090/manager/text</url>
 						<server>myserver</server>
 						<path>/StockTradingApp</path>
 						<update>true</update>
-						<username>tomcat</username>
-						<password>tomcat</password>
+						<username>tomcat1</username>
+						<password>tomcat1</password>
 					</configuration>
 				</plugin>
 				<plugin>
