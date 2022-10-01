@@ -1,0 +1,18 @@
+spring:
+ application:
+  name: StockTradingApp
+ boot:
+  admin:
+   client:
+    url: http://localhost:7080 
+server:
+  port: 9085  
+
+info:
+ app:
+  name: StockTradingApp  
+  version: 1.0
+  test: de
+  
+ logging:
+  file: trading.log 
