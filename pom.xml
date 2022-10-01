@@ -132,7 +132,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<plugin>
+		<!--	<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<version>1.9.1</version>
@@ -165,7 +165,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -215,7 +215,7 @@
 				</configuration>
 			</plugin>
 
-
+<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
@@ -234,7 +234,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> 
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
@@ -262,7 +262,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin-->
 			
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
@@ -342,7 +342,7 @@
 		</pluginManagement>
 
 	</build>
-	<reporting>
+	<!-- <reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -350,5 +350,5 @@
 				<version>2.19.1</version>
 			</plugin>
 		</plugins>
-	</reporting>
+	</reporting> -->
 </project>
