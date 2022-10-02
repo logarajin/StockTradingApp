@@ -3,7 +3,7 @@ agent any
  
 tools{
 maven 'Maven'
-jdk 'Java 8'
+jdk    'Java 8'
 }
  
 stages {
