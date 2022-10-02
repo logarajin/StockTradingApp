@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<name>StockTradingApplication</name>
-	<description>Capstone Stock Trading Application</description>
+	<description>Capstone Stock Trad1ing Application</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
