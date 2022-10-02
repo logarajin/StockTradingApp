@@ -1,10 +1,13 @@
 node {
  def mvnHome
  def app 
- 
-   stage('SCM Checkout'){
-     git 'https://github.com/logarajin/StockTradingApp'
-   }
+
+        
+	     stage('SCM Checkout'){
+              git url: 'https://github.com/logarajin/StockTradingApp.git'
+			   mvnHome = tool "MAVEN_HOME"
+           }
+
    stage('Compile-Package'){
       // Get maven home path
     //  def mvnHome =  tool name: 'maven-3', type: 'maven'   
