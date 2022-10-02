@@ -1,48 +1,42 @@
-node {
- def mvnHome
- def app 
-    
-    
- stage('Download Artifacts') {
-       sh ' ansible-playbook -i /home/jenkins/ansiserver /home/jenkins/download_artifacts.yaml'
-  }
+pipeline {
+agent any
  
-stage('Stop Docker Container') {
-       sh 'sudo ansible-playbook -i /home/jenkins/ansiserver /home/jenkins/stop_docker_container.yaml'
+tools{
+maven 'Maven'
+jdk 'Java 8'
 }
  
+stages {
+stage ("initialize") {
+steps {
+ echo "Hello Rama"
  
- stage('Remove Docker Container') {
-     sh 'sudo ansible-playbook -i /home/jenkins/ansiserver /home/jenkins/remove_docker_container.yaml'
- }
- 
-  stage('Remove Docker Images') {
-     sh 'sudo ansible-playbook -i /home/jenkins/ansiserver /home/jenkins/remove_docker_images.yaml'
- }
- 
- stage('Build Docker Images') {
-       sh 'sudo ansible-playbook -i /home/jenkins/ansiserver /home/jenkins/build_docker_images.yaml'
- }
-    
- stage('Run Docker Container') {
-       sh 'sudo ansible-playbook -i /home/jenkins/ansiserver /home/jenkins/run_docker_container.yaml'
- }
- 
- stage('Send email') {
-    def mailRecipients = "raja.jaganathan@wipro.com"
-    def jobName = currentBuild.fullDisplayName
-    
-    def mailCC ="cc:raghavendran.sethumadhavan1@wipro.com"
-    def mailCC1 ="cc:avinash.patel@wipro.com"
-    def mailCC2 ="cc:prakash.ramamurthy@wipro.com"
-    
-    emailext attachLog: true, body: "${currentBuild.currentResult}: ${BUILD_URL}",
-        mimeType: 'text/html',
-        subject: "RA312845/DevOpsProfessional/Batch9/Capstone/Pipeline_Docker/StockTradingApplication - ${currentBuild.currentResult}",
-         to: "${mailRecipients} ${mailCC} ${mailCC1} ${mailCC2}",
-        recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-        
-     }
-    
+  
+}
+}
 
+stage('Checkout') {
+            steps {
+               
+        
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '8bf65c5c-06bf-454c-9b6b-c3c180230524', 
+                 url: 'https://github.com/logarajin/StockTradingApp.git']]])
+				 
+				 
+            
+                 
+            }
+        }
+
+   stage('Compile-Package'){
+       steps{
+        
+           sh "mvn -Dmaven.test.failure.ignore clean package"
+
+       }
+
+     }
+
+
+}
 }
