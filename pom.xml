@@ -317,8 +317,8 @@
 						<server>myserver</server>
 						<path>/StockTradingApp</path>
 						<update>true</update>
-						<username>tomcat</username>
-						<password>tomcat</password>
+						<username>tomcat1</username>
+						<password>tomcat1</password>
 					</configuration>
 				</plugin>
 				<plugin>
