@@ -1,19 +1,42 @@
-node {
- def mvnHome
- def app 
+pipeline {
+agent any
+ 
+tools{
+maven 'Maven'
+jdk 'Java 8'
+}
+ 
+stages {
+stage ("initialize") {
+steps {
+ echo "Hello Rama"
+ 
+  
+}
+}
 
+stage('Checkout') {
+            steps {
+               
         
-	     stage('SCM Checkout'){
-              git url: 'https://github.com/logarajin/StockTradingApp.git'
-			   mvnHome = tool "MAVEN_HOME"
-           }
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '8bf65c5c-06bf-454c-9b6b-c3c180230524', 
+                 url: 'https://github.com/logarajin/StockTradingApp.git']]])
+				 
+				 
+            
+                 
+            }
+        }
 
    stage('Compile-Package'){
-      // Get maven home path
-    //  def mvnHome =  tool name: 'maven-3', type: 'maven'   
-      sh "${mvnHome}/bin/mvn package"
-   }
-    
-    
+       steps{
+        
+           sh "mvn -Dmaven.test.failure.ignore clean package"
 
+       }
+
+     }
+
+
+}
 }
