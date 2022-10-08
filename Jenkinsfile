@@ -18,12 +18,9 @@ steps {
 stage('Checkout') {
             steps {
                
-        
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '8bf65c5c-06bf-454c-9b6b-c3c180230524', 
-                 url: 'https://github.com/logarajin/StockTradingApp.git']]])
 				 
-				 
-            
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'f17ff04e-6ef4-4d3f-8ed3-0b848eae0533',
+													     url: 'https://github.com/logarajin/StockTradingApp.git']]])
                  
             }
         }
