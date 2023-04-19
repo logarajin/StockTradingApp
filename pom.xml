@@ -5,7 +5,7 @@
 
 	<groupId>com.springboot.microservices</groupId>
 	<artifactId>StockTradingApp</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>0.0.5-SNAPSHOT</version>
 	
 	<packaging>war</packaging>
 
